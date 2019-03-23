@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Button from '@material-ui/core/Button';
 
@@ -18,21 +18,20 @@ const styles = theme => ({
 class ButtonBar extends Component {
 
   render() {
-    const { classes } = this.props;
+    const {classes, id, handleClickLike, handleClickUnlike} = this.props;
 
     return (
       <div className={classes.spaceTop}>
-        <Button
-          className={classes.primary}
-        >
+        <Button className={classes.primary}>
           Delete
         </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.secondary}
-        >
-          Edit
+        <Button //variant="contained"
+          size="small" color="primary" onClick={() => handleClickUnlike(id)} className={classes.button}>
+          Unlike
+        </Button>
+        <Button //variant="contained"
+          size="small" color="secondary" onClick={() => handleClickLike(id)} className={classes.button}>
+          Like
         </Button>
       </div>
     )
